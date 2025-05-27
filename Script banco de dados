@@ -1,0 +1,37 @@
+CREATE TABLE patients (
+    id             BIGSERIAL      PRIMARY KEY,
+    full_name      VARCHAR(255)   NOT NULL,
+    birth_date     DATE           NOT NULL,
+    cpf            VARCHAR(14)    NOT NULL UNIQUE,
+    rg             VARCHAR(20),
+    email          VARCHAR(255),
+    phone          VARCHAR(20),
+    address_street VARCHAR(255),
+    address_city   VARCHAR(100),
+    address_state  VARCHAR(50),
+    address_zip    VARCHAR(20),
+    allergies      TEXT[]         NOT NULL DEFAULT '{}'::TEXT[],
+    medications    TEXT[]         NOT NULL DEFAULT '{}'::TEXT[],
+    profile_photo  BYTEA,
+    is_active      BOOLEAN        NOT NULL DEFAULT TRUE,
+    created_at     TIMESTAMPTZ    NOT NULL DEFAULT NOW(),
+    updated_at     TIMESTAMPTZ    NOT NULL DEFAULT NOW(),
+    CONSTRAINT chk_email_format
+      CHECK (email IS NULL OR email ~* '^[^@]+@[^@]+\.[a-z]{2,}$')
+);
+
+- Pacientes
+INSERT INTO patients (
+  id, full_name, birth_date, cpf, rg, email, phone,
+  address_street, address_city, address_state, address_zip,
+  allergies, medications, is_active
+) VALUES
+  (1, 'João Silva',    '1985-10-12','12345678900','MG-12.345.678','joao@example.com','(11)99999-0001',
+   'Rua A, 123','São Paulo','SP','01234-567',
+   ARRAY['Pólen'],    ARRAY['Aspirina'], TRUE),
+  (2, 'Maria Souza',   '1990-05-20','98765432100','SP-87.654.321','maria@example.com','(21)98888-0002',
+   'Av. B, 456','Rio de Janeiro','RJ','12345-678',
+   ARRAY['Amendoim'], ARRAY['Ibuprofeno'], TRUE),
+  (3, 'Carlos Pereira','1978-03-15','11223344556','RJ-11.223.344','carlos@example.com','(31)97777-0003',
+   'Trav. C, 789','Belo Horizonte','MG','23456-789',
+   ARRAY['Marisco'],  ARRAY['Omeprazol'],   TRUE);
