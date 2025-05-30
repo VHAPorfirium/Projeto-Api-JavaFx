@@ -21,7 +21,7 @@ Este é um projeto que combina uma API REST desenvolvida com Spring Boot para se
 
 ## 📦 Estrutura do Projeto
 
-## Estrutura do Projeto
+## Estrutura da ApiRest
 
 ```plaintext
 PROJETO-API-JAVAFX/
@@ -87,7 +87,7 @@ A documentação da API está disponível através do Swagger UI. Após iniciar 
 http://localhost:8080/swagger-ui.html
 
 ## 📝 Notas de Desenvolvimento
-- O projeto utiliza Spring Boot 3.x, que requer Java 21
+- O projeto utiliza Spring Boot 3, que requer Java 21
 - A interface gráfica vai ser desenvolvida com JavaFX
 - O banco de dados PostgreSQL é utilizado para persistência
 - A API REST segue os princípios RESTful
