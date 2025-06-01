@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="formRootPane" styleClass="root" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.vhaporfiro.projetojavafxconsumoapirest.controller.PatientFormController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #ffffff; -fx-border-width: 0 0 1 0; -fx-border-color: #e7eef3;">
+            <padding> <Insets bottom="12" left="20" right="20" top="12" /> </padding>
+            <Label text="❖" textFill="#0e161b"> <font> <Font name="Arial Bold" size="18" /> </font> </Label>
+            <Label fx:id="formTitleLabel" text="Formulário do Paciente" textFill="#0e161b"> <font> <Font name="Inter Bold" size="17" /> </font> </Label>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" hbarPolicy="NEVER">
+            <StackPane alignment="CENTER" style="-fx-background-color: transparent; -fx-padding: 10;">
+                <VBox fx:id="formVBoxContainer" spacing="10" maxWidth="680"
+                      style="-fx-background-color: #ffffff; -fx-border-color: #e0e0e0; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 20;">
+
+                    <Label text="Informações Pessoais" styleClass="section-title"/>
+                    <GridPane hgap="15" vgap="8">
+                        <Label text="Nome Completo*:" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <TextField fx:id="fullNameField" promptText="Digite o nome completo" styleClass="form-field" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                        <Label text="Data de Nascimento*:" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <DatePicker fx:id="birthDateField" promptText="DD/MM/AAAA" styleClass="form-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                        <Label text="CPF*:" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <TextField fx:id="cpfField" promptText="Digite o CPF" styleClass="form-field" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                        <Label text="RG:" styleClass="form-label" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <TextField fx:id="rgField" promptText="Digite o RG" styleClass="form-field" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                        <columnConstraints>
+                            <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="100.0" prefWidth="150.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" />
+                        </columnConstraints>
+                    </GridPane>
+
+                    <Label text="Informações de Contato" styleClass="section-title"/>
+                    <GridPane hgap="15" vgap="8">
+                        <Label text="E-mail:" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <TextField fx:id="emailField" promptText="Digite o e-mail" styleClass="form-field" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                        <Label text="Telefone:" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <TextField fx:id="phoneField" promptText="Digite o telefone" styleClass="form-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                        <columnConstraints>
+                            <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="100.0" prefWidth="150.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" />
+                        </columnConstraints>
+                    </GridPane>
+
+                    <Label text="Endereço" styleClass="section-title"/>
+                    <GridPane hgap="15" vgap="8">
+                        <Label text="Logradouro:" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <TextField fx:id="addressStreetField" promptText="Digite o logradouro" styleClass="form-field" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                        <Label text="Cidade:" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <TextField fx:id="addressCityField" promptText="Digite a cidade" styleClass="form-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                        <Label text="Estado:" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <ComboBox fx:id="addressStateComboBox" promptText="Selecione o Estado" styleClass="form-field" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                        <Label text="CEP:" styleClass="form-label" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <TextField fx:id="addressZipField" promptText="Digite o CEP" styleClass="form-field" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                        <columnConstraints>
+                            <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="100.0" prefWidth="150.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" />
+                        </columnConstraints>
+                    </GridPane>
+
+                    <Label text="Histórico Médico" styleClass="section-title"/>
+                    <GridPane hgap="15" vgap="8">
+                        <Label text="Alergias:" styleClass="form-label" GridPane.valignment="TOP" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <TextArea fx:id="allergiesArea" promptText="Liste as alergias, separadas por vírgula" wrapText="true" styleClass="form-field" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                        <Label text="Medicamentos:" styleClass="form-label" GridPane.valignment="TOP" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <TextArea fx:id="medicationsArea" promptText="Liste os medicamentos, separados por vírgula" wrapText="true" styleClass="form-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                        <columnConstraints>
+                            <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="100.0" prefWidth="150.0"/>
+                            <ColumnConstraints hgrow="ALWAYS" />
+                        </columnConstraints>
+                    </GridPane>
+
+                    <CheckBox fx:id="isActiveCheckBox" text="Paciente Ativo" style="-fx-font-size: 13px;">
+                        <VBox.margin><Insets top="8" /></VBox.margin>
+                    </CheckBox>
+
+                    <HBox alignment="CENTER_RIGHT" spacing="15">
+                        <padding> <Insets top="20" bottom="10" /> </padding>
+                        <Button fx:id="cancelButton" onAction="#handleCancel" text="Cancelar" styleClass="button-secondary" />
+                        <Button fx:id="saveButton" onAction="#handleSave" text="Salvar Paciente" styleClass="button-primary" />
+                    </HBox>
+                </VBox>
+            </StackPane>
+        </ScrollPane>
+    </center>
+</BorderPane>
