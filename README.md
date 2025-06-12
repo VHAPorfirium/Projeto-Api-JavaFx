@@ -166,3 +166,10 @@ Após iniciar a aplicação backend (API REST), a documentação interativa da A
 [http://localhost:8080/swagger-ui.html](https://www.google.com/search?q=http://localhost:8080/swagger-ui.html)
 
 -----
+
+## Integrantes:
+- Victor Hugo Aguair Porfiro
+- Kevin Oliveira Matos
+- Guilherme Bastos Borge
+- Josué Félix da Silva
+- Pedro Henrique Talalayv Gomes.
